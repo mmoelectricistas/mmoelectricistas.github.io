@@ -1,0 +1,46 @@
+name: Monitoreo Web MMO (Alerta de Anomalias)
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    inputs:
+      simular_fallo:
+        description: 'Simular anomalia para probar notificacion (true/false)'
+        required: false
+        default: 'false'
+
+jobs:
+  verificar_web:
+    name: Control de Salud y Analytics MMO
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auditar estado, velocidad y etiquetas de https://mmoelectricistas.github.io/
+        run: |
+          if [ "${{ github.event.inputs.simular_fallo }}" = "true" ]; then
+            echo "::error::PRUEBA DE ALERTA: Simulacion de anomalia en MMO Electricistas activada correctamente."
+            exit 1
+          fi
+
+          METRICS=$(curl -s -o pagina.html -w "%{http_code} %{time_total}" https://mmoelectricistas.github.io/)
+          HTTP_CODE=$(echo "$METRICS" | awk '{print $1}')
+          TIME_TOTAL=$(echo "$METRICS" | awk '{print $2}')
+
+          echo "Estado HTTP: $HTTP_CODE | Tiempo de respuesta: ${TIME_TOTAL}s"
+
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::error::ANOMALIA DETECTADA: La web devolvio HTTP $HTTP_CODE en lugar de 200 OK."
+            exit 1
+          fi
+
+          if ! grep -q "G-XRC3YL6FTY" pagina.html; then
+            echo "::error::ANOMALIA DETECTADA: No se encontro la etiqueta de Google Analytics 4 (G-XRC3YL6FTY)."
+            exit 1
+          fi
+
+          if ! grep -q "AW-16953647837" pagina.html; then
+            echo "::error::ANOMALIA DETECTADA: No se encontro la etiqueta de Google Ads (AW-16953647837)."
+            exit 1
+          fi
+
+          echo "Todo en verde: Web activa, rapida y con etiquetas funcionando."
