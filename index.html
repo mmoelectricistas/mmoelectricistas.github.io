@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png?v=2">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="icon" type="image/x-icon" href="/favicon.ico?v=3">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png?v=3">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
 <link rel="canonical" href="https://mmoelectricistas.github.io/">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
@@ -1311,7 +1311,10 @@
   <script>
   /* Agregá acá las reseñas reales (copiadas de Google Maps). Si queda vacío, solo se muestra el botón. */
   var MMO_REVIEWS = [
-    // { name: 'Nombre del cliente', stars: 5, text: 'Texto de la reseña…', when: 'hace 2 semanas' }
+    { name: 'Ezequiel Gomez', stars: 5, text: 'Excelente servicio. Vino por un corte de luz en casa, encontró el problema enseguida y lo solucionó en el momento. Trabaja de manera prolija, rápida y se toma el tiempo de explicar lo que hace. Muy profesional y confiable. Súper recomendable.' },
+    { name: 'Mikeass Ramos Rodríguez', stars: 5, text: 'Hasan es un electricista matriculado en Córdoba con excelente relación precio-calidad. Llegó puntual, realizó un diagnóstico preciso y dejó la instalación funcionando de forma segura. Totalmente recomendable' },
+    { name: 'luji chimossa', stars: 5, text: 'Muy buen profesional para trabajos de electricidad en domicilios particulares.. Recomendado 100%' },
+    { name: 'Melisa Escobar Tejerina', stars: 5, text: 'Recomendadisimo!! Tuvimos un corto circuito y no podíamos encender la luz y vino en el momento y lo solucionó. Además que nos paso el presupuesto en el momento y nos convención y lo arreglo. Un diez!' }
   ];
   (function () {
     var grid = document.getElementById('reviews-grid');
@@ -1325,7 +1328,7 @@
       var p = document.createElement('p'); p.textContent = '“' + r.text + '”';
       var w = document.createElement('div'); w.className = 'who'; w.textContent = r.name;
       a.appendChild(d); a.appendChild(p); a.appendChild(w);
-      if (r.when) { var t = document.createElement('div'); t.className = 'when'; t.textContent = r.when + ' · Google'; a.appendChild(t); }
+      var t = document.createElement('div'); t.className = 'when'; t.textContent = r.when ? r.when + ' · Google' : 'Reseña en Google Maps'; a.appendChild(t);
       grid.appendChild(a);
     });
   })();
