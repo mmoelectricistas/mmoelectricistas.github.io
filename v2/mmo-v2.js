@@ -1,4 +1,4 @@
-// MMO 2.0 - Motor de Conversión, Validación, Tracking Google Ads / GA4 y UX
+// MMO 2.0 - Motor de Conversión, Scroll-Reveal, Popup de Agente WhatsApp, Validación y Tracking Google Ads / GA4
 (function () {
   // 1. Detectar si el cliente entró desde un anuncio de Google Ads (gclid / wbraid / gbraid / utm)
   try {
@@ -51,7 +51,128 @@
     return false;
   };
 
-  // 3. Barra superior de progreso de lectura
+  // 3. Animación Scroll-Reveal progresiva al bajar con la ruedita o el dedo en celular
+  function initScrollReveal() {
+    var selectors = [
+      '.prof-card-standalone',
+      '.section-label',
+      '.section-title',
+      '.section-desc',
+      '.problem-card',
+      '.service-card',
+      '.step-card',
+      '.pillar-card',
+      '.checklist-items li',
+      '.work-photo-card',
+      '.review-card',
+      '.zcard',
+      '.faq-item',
+      '.contact-card',
+      '.why-points li'
+    ];
+    var elements = document.querySelectorAll(selectors.join(','));
+    elements.forEach(function (el, index) {
+      el.classList.add('rv');
+      // Escalonar tarjetas hermanas dentro de una misma grilla
+      var parent = el.parentElement;
+      if (parent) {
+        var siblings = Array.prototype.slice.call(parent.children);
+        var pos = siblings.indexOf(el);
+        if (pos > 0 && pos <= 5) {
+          el.classList.add('rv-d' + (pos % 4 + 1));
+        }
+      }
+    });
+
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -45px 0px', threshold: 0.08 });
+
+      elements.forEach(function (el) { obs.observe(el); });
+    } else {
+      elements.forEach(function (el) { el.classList.add('in-view'); });
+    }
+  }
+
+  // 4. Submódulo / Globo emergente de WhatsApp con Silueta de Agente Técnico Animado
+  function initWhatsAppAgentPopup() {
+    if (document.getElementById('wa-popup')) return;
+    var waMsg = 'Hola MMO, tengo un problema eléctrico y necesito asesoramiento. ¿Me podrían ayudar?';
+    var waHref = 'https://wa.me/5493512712104?text=' + encodeURIComponent(waMsg);
+
+    var pop = document.createElement('div');
+    pop.id = 'wa-popup';
+    pop.className = 'wa-popup';
+    pop.setAttribute('role', 'dialog');
+    pop.setAttribute('aria-label', 'Asesoramiento por WhatsApp');
+    pop.innerHTML =
+      '<button type="button" class="wa-pop-close" id="wa-pop-close" aria-label="Cerrar aviso">×</button>' +
+      '<div class="wa-pop-header">' +
+        '<div class="wa-agent-avatar" aria-hidden="true">' +
+          '<!-- Silueta vectorial animada de agente técnico matriculado con casco y auricular -->' +
+          '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' +
+            '<path d="M4 11a8 8 0 0 1 16 0"/>' +
+            '<path d="M3 11h18"/>' +
+            '<path d="M12 3v3"/>' +
+            '<circle cx="12" cy="13" r="4"/>' +
+            '<path d="M6 21v-1a6 6 0 0 1 12 0v1"/>' +
+            '<path d="M19 13v2a2 2 0 0 1-2 2h-2"/>' +
+          '</svg>' +
+          '<span class="wa-agent-status"></span>' +
+        '</div>' +
+        '<div>' +
+          '<div class="wa-pop-name">MMO Electricistas</div>' +
+          '<span class="wa-pop-role">● Matriculado en línea ahora</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="wa-pop-msg">' +
+        '¿Necesitás asesoramiento con un tema eléctrico? Estamos para ayudarte. ¿Nos querés comentar?' +
+      '</div>' +
+      '<a href="' + waHref + '" target="_blank" rel="noopener" class="wa-pop-cta" id="wa-pop-btn">' +
+        '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>' +
+        'Escribir ahora' +
+      '</a>';
+
+    document.body.appendChild(pop);
+
+    var closeBtn = document.getElementById('wa-pop-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        pop.classList.remove('show');
+        try { sessionStorage.setItem('mmo_wa_pop_closed', '1'); } catch (e) {}
+      });
+    }
+    var ctaBtn = document.getElementById('wa-pop-btn');
+    if (ctaBtn) {
+      ctaBtn.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        window.trackClicSaliente(this.href, '_blank');
+      });
+    }
+
+    try {
+      if (sessionStorage.getItem('mmo_wa_pop_closed') !== '1') {
+        setTimeout(function () {
+          pop.classList.add('show');
+        }, 2200);
+      }
+    } catch (e) {
+      setTimeout(function () { pop.classList.add('show'); }, 2200);
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', function () {
+    initScrollReveal();
+    initWhatsAppAgentPopup();
+  });
+
+  // 5. Barra superior de progreso de lectura
   window.addEventListener('scroll', function () {
     var bar = document.getElementById('scroll-progress');
     if (!bar) return;
@@ -61,13 +182,13 @@
     bar.style.width = scrolled + '%';
   }, { passive: true });
 
-  // 4. Menú hamburguesa móvil
+  // 6. Menú hamburguesa móvil
   window.toggleMobileDrawer = function () {
     var d = document.getElementById('mobile-drawer');
     if (d) d.classList.toggle('open');
   };
 
-  // 5. Botones [data-quote]: scrollean suave al formulario, pre-seleccionan servicio/zona y enfocan Nombre
+  // 7. Botones [data-quote]: scrollean suave al formulario, pre-seleccionan servicio/zona y enfocan Nombre
   document.addEventListener('click', function (e) {
     var btn = e.target.closest('[data-quote]');
     if (!btn) return;
@@ -97,7 +218,7 @@
     }, 450);
   });
 
-  // 6. Validación real de formularios + Paso a WhatsApp estilo Diego Ayala
+  // 8. Validación real de formularios + Paso a WhatsApp
   window.handleQuoteSubmit = function (e, form) {
     if (e) e.preventDefault();
     var nombreInput = form.querySelector('input[name="nombre"]');
@@ -158,14 +279,13 @@
     return false;
   };
 
-  // Quitar estado de error al escribir
   document.addEventListener('input', function (e) {
     if (e.target && e.target.classList && e.target.classList.contains('err')) {
       e.target.classList.remove('err');
     }
   });
 
-  // 7. Buscador en vivo de Zonas y Barrios
+  // 9. Buscador en vivo de Zonas y Barrios
   window.filtrarTarjetasZona = function (q) {
     var query = (q || '').toLowerCase().trim();
     document.querySelectorAll('.zcard').forEach(function (card) {
@@ -174,7 +294,7 @@
     });
   };
 
-  // 8. Lightbox de fotos de trabajos
+  // 10. Lightbox de fotos de trabajos
   window.openLightbox = function (src, caption) {
     var lb = document.getElementById('mmo-lightbox');
     if (!lb) return;
