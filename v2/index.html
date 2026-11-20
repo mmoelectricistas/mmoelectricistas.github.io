@@ -145,7 +145,7 @@
   </div>
 </div>
 
-<!-- HERO PRINCIPAL DE 2 COLUMNAS CON TIPOGRAFÍA ORIGINAL MMO (SIN SUBRAYADO AMARILLO) -->
+<!-- HERO PRINCIPAL DE 2 COLUMNAS -->
 <section class="hero">
   <div class="hero-grid-bg"></div>
   <div class="hero-inner">
@@ -156,14 +156,18 @@
       <p class="hero-desc">
         Profesionales matriculados con amplia experiencia en instalaciones eléctricas domiciliarias, comerciales e industriales, tableros, pilares homologados y certificados de Apto Eléctrico para EPEC. Trabajo prolijo, respuesta rápida y garantía profesional.
       </p>
+
+      <!-- Sello persuasivo de garantía de precio -->
+      <div class="budget-guarantee-pill">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span><strong>Garantía MMO:</strong> Mejoramos cualquier presupuesto escrito de otro electricista matriculado.</span>
+      </div>
+
+      <!-- Solo botón "Pedir presupuesto" (se eliminó WhatsApp directo por solicitud) -->
       <div class="hero-actions">
         <a href="#hero-quote-form" data-quote class="btn-primary">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           Pedir presupuesto
-        </a>
-        <a href="https://wa.me/5493512712104?text=Hola%20MMO%20Electricistas%2C%20necesito%20hacer%20una%20consulta%20por%20un%20trabajo%20el%C3%A9ctrico%20en%20C%C3%B3rdoba." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="btn-wa-hero">
-          <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          WhatsApp directo
         </a>
       </div>
 
@@ -176,10 +180,21 @@
           <div class="stat-num">24 <span>hs</span></div>
           <div class="stat-label">Urgencias todos los días</div>
         </div>
-        <div class="stat-box">
-          <div class="stat-num">5.0 <span>★</span></div>
-          <div class="stat-label">Calificación en Google</div>
-        </div>
+        <!-- Recuadro de 5.0 estrellas con logo de Google Maps: al tocarlo lleva directo al módulo de Reseñas (#resenas) -->
+        <a href="#resenas" class="stat-box stat-box-google" aria-label="Ver reseñas verificadas en Google Maps">
+          <div class="stat-google-top">
+            <!-- Logo oficial Google Maps Pin + G multicolor -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2C7.58 2 4 5.58 4 10c0 5.25 8 12 8 12s8-6.75 8-12c0-4.42-3.58-8-8-8z" fill="#EA4335"/>
+              <path d="M12 2C7.58 2 4 5.58 4 10c0 1.85.63 3.55 1.69 4.9L12 7.5l6.31 7.4C19.37 13.55 20 11.85 20 10c0-4.42-3.58-8-8-8z" fill="#4285F4" opacity="0.88"/>
+              <path d="M5.69 14.9C7.64 17.85 12 22 12 22s4.36-4.15 6.31-7.1L12 10.5 5.69 14.9z" fill="#34A853"/>
+              <circle cx="12" cy="10" r="3.4" fill="#FBBC04"/>
+              <circle cx="12" cy="10" r="2.1" fill="#ffffff"/>
+            </svg>
+            <div class="stat-num">5.0 <span class="g-stars">★★★★★</span></div>
+          </div>
+          <div class="stat-label">Google Maps · Ver reseñas ↓</div>
+        </a>
       </div>
     </div>
 
@@ -193,15 +208,20 @@
           </div>
           <p class="quote-card-sub">Completá tus datos y te abrimos el chat de WhatsApp con tu consulta lista para atenderte en el acto:</p>
 
+          <div class="quote-guarantee-tag">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Mejoramos cualquier presupuesto escrito en Córdoba</span>
+          </div>
+
           <div class="qform-row qform-group">
             <div>
               <label class="qform-label">Tu nombre *</label>
-              <input type="text" name="nombre" class="qform-input" placeholder="Ej: Marcos" required>
+              <input type="text" name="nombre" class="qform-input" placeholder="Ej: Alexander" required>
               <span class="qform-err-msg">Ingresá tu nombre</span>
             </div>
             <div>
               <label class="qform-label">Tu teléfono *</label>
-              <input type="tel" name="telefono" class="qform-input" placeholder="Ej: 351 234-5678" required>
+              <input type="tel" name="telefono" class="qform-input" placeholder="Ej: 351 800-2974" required>
               <span class="qform-err-msg">Ingresá un teléfono válido</span>
             </div>
           </div>
@@ -222,12 +242,12 @@
 
           <div class="qform-group">
             <label class="qform-label">Barrio, Country o Localidad</label>
-            <input type="text" name="zona" class="qform-input" placeholder="Ej: Nueva Córdoba, Cerro, Manantiales, Villa Allende...">
+            <input type="text" name="zona" class="qform-input" placeholder="Ej: Córdoba Capital, Nueva Córdoba, Manantiales...">
           </div>
 
           <div class="qform-group">
             <label class="qform-label">Contanos brevemente qué pasó o qué necesitás</label>
-            <textarea name="mensaje" class="qform-textarea" placeholder="Ej: Salta el disyuntor / Necesito el certificado apto EPEC para el medidor..."></textarea>
+            <textarea name="mensaje" class="qform-textarea" placeholder="Ej: Solicito presupuesto / Salta el disyuntor..."></textarea>
           </div>
 
           <button type="submit" class="qform-submit">
@@ -285,7 +305,7 @@
   </div>
 </section>
 
-<!-- BARRA DE CONFIANZA ERSeP ("Córdoba y alrededores") -->
+<!-- BARRA DE CONFIANZA ERSeP -->
 <div class="ersep-bar">
   <div class="ersep-item">
     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
@@ -297,8 +317,8 @@
     Certificados ERSeP para EPEC
   </div>
   <div class="ersep-divider"></div>
-  <div class="ersep-item">
-    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+  <div class="ersep-item highlight-budget">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
     Mejoramos cualquier presupuesto
   </div>
   <div class="ersep-divider"></div>
@@ -308,7 +328,7 @@
   </div>
 </div>
 
-<!-- TARJETA DE HASAN CHUMACERO JUSTO DEBAJO DE URGENCIAS (DA CARA A LA WEB) -->
+<!-- TARJETA DE HASAN CHUMACERO JUSTO DEBAJO DE URGENCIAS -->
 <section id="profesionales" class="prof-section">
   <div class="prof-section-inner">
     <p class="prof-section-label">Profesionales habilitados</p>
@@ -332,92 +352,15 @@
   </div>
 </section>
 
-<!-- SECCIÓN 1: ¿QUÉ TE ESTÁ PASANDO? (6 PROBLEMAS FRECUENTES CON ÍCONOS VECTORIALES SVG) -->
-<section class="problems-sec">
-  <div class="container">
-    <span class="section-label">Problemas frecuentes</span>
-    <h2 class="section-title">¿Qué te está <em>pasando ahora</em>?</h2>
-    <p class="section-desc">Tocá tu problema y nos escribís directamente por WhatsApp con el mensaje ya armado para darte solución inmediata:</p>
-
-    <div class="problems-grid">
-      <a href="https://wa.me/5493512712104?text=Hola%20MMO%20Electricistas%2C%20se%20me%20cort%C3%B3%20la%20luz%20y%20necesito%20revisi%C3%B3n%20el%C3%A9ctrica%20a%20domicilio." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="problem-card">
-        <div class="problem-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <div>
-          <div class="problem-title">Se cortó la luz</div>
-          <div class="problem-desc">Te quedaste sin energía en toda la casa, local o en un sector y en la cuadra sí hay luz.</div>
-          <span class="problem-cta">Escribir por este problema →</span>
-        </div>
-      </a>
-
-      <a href="https://wa.me/5493512712104?text=Hola%20MMO%20Electricistas%2C%20me%20salta%20la%20t%C3%A9rmica%20o%20el%20disyuntor%20y%20necesito%20que%20lo%20revisen." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="problem-card">
-        <div class="problem-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
-        </div>
-        <div>
-          <div class="problem-title">Salta la térmica o el disyuntor</div>
-          <div class="problem-desc">Se baja sola al prender equipos, en días de humedad o no vuelve a subir. Detectamos la fuga real.</div>
-          <span class="problem-cta">Escribir por este problema →</span>
-        </div>
-      </a>
-
-      <a href="https://wa.me/5493512712104?text=Hola%20MMO%20Electricistas%2C%20hubo%20un%20cortocircuito%20o%20siento%20olor%20a%20cable%20quemado.%20%C2%BFPueden%20venir%20a%20revisar%3F" target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="problem-card">
-        <div class="problem-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
-        </div>
-        <div>
-          <div class="problem-title">Cortocircuito u olor a quemado</div>
-          <div class="problem-desc">Chispazos en un enchufe, llaves calientes o cables recalentados en el tablero. Atención prioritaria.</div>
-          <span class="problem-cta">Escribir por este problema →</span>
-        </div>
-      </a>
-
-      <a href="https://wa.me/5493512712104?text=Hola%20MMO%20Electricistas%2C%20me%20pidieron%20el%20Certificado%20de%20Apto%20El%C3%A9ctrico%20de%20ERSeP%20para%20EPEC.%20%C2%BFMe%20pasan%20informaci%C3%B3n%3F" target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="problem-card">
-        <div class="problem-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        </div>
-        <div>
-          <div class="problem-title">Te pidieron el Apto para EPEC</div>
-          <div class="problem-desc">Necesitás el Certificado ERSeP firmado por matriculado (MP 6855/1) para pedir medidor o reconectar.</div>
-          <span class="problem-cta">Consultar Apto EPEC →</span>
-        </div>
-      </a>
-
-      <a href="https://wa.me/5493512712104?text=Hola%20MMO%20Electricistas%2C%20tengo%20un%20tablero%20o%20instalaci%C3%B3n%20vieja%20y%20quiero%20presupuesto%20para%20actualizarlo." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="problem-card">
-        <div class="problem-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <div>
-          <div class="problem-title">Tablero o instalación vieja</div>
-          <div class="problem-desc">Cajas con tapones/fusibles antiguos, cables de tela o falta de puesta a tierra y disyuntor.</div>
-          <span class="problem-cta">Cotizar actualización →</span>
-        </div>
-      </a>
-
-      <a href="https://wa.me/5493512712104?text=Hola%20MMO%20Electricistas%2C%20necesito%20cotizar%20instalaci%C3%B3n%20de%20pilar%20el%C3%A9ctrico%20o%20cerco%20el%C3%A9ctrico." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="problem-card">
-        <div class="problem-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div>
-          <div class="problem-title">Pilar nuevo o Cerco para Country</div>
-          <div class="problem-desc">Colocación de pilares homologados EPEC, cercos eléctricos perimetrales y cámaras de seguridad.</div>
-          <span class="problem-cta">Pedir cotización →</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- SECCIÓN 2: SERVICIOS CON PÁGINAS DEDICADAS COMPLETAS -->
+<!-- SECCIÓN 1 (ABAJA DEL PERFIL DE HASAN): SERVICIOS ELÉCTRICOS COMPLETOS (TODA LA TARJETA LLEVA A "VER QUÉ INCLUYE") -->
 <section id="servicios" class="services-sec">
   <div class="container">
     <span class="section-label">Lo que hacemos</span>
     <h2 class="section-title">Servicios eléctricos <em>completos</em></h2>
-    <p class="section-desc">Entrá a cada servicio para ver en detalle qué incluye el trabajo, cómo lo hacemos paso a paso, fotos reales y las preguntas frecuentes:</p>
+    <p class="section-desc">Tocá cualquier tarjeta de servicio para ver en detalle qué incluye el trabajo, cómo lo hacemos paso a paso, fotos reales y las preguntas frecuentes:</p>
 
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card" onclick="window.location.href='servicios/tableros-electricos.html'">
         <div class="service-top">
           <div class="service-icon">
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
@@ -428,11 +371,11 @@
         <p class="service-desc">Armado, recambio y normalización de tableros eléctricos. Térmicas por circuito, disyuntor diferencial, peinado y rotulado prolijo.</p>
         <div class="service-links">
           <a href="servicios/tableros-electricos.html" class="service-link-page">Ver qué incluye →</a>
-          <a href="https://wa.me/5493512712104?text=Hola%20MMO%2C%20quiero%20consultar%20por%20tableros%2C%20t%C3%A9rmicas%20y%20disyuntores." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="service-link-wa">Cotizar</a>
+          <a href="https://wa.me/5493512712104?text=Hola%20MMO%2C%20quiero%20consultar%20por%20tableros%2C%20t%C3%A9rmicas%20y%20disyuntores." target="_blank" rel="noopener" onclick="event.stopPropagation(); return trackClicSaliente(this.href, '_blank')" class="service-link-wa">Cotizar</a>
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" onclick="window.location.href='servicios/apto-electrico-epec.html'">
         <div class="service-top">
           <div class="service-icon">
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
@@ -443,11 +386,11 @@
         <p class="service-desc">Revisión completa y emisión del Certificado de Instalación Eléctrica Apta (ERSeP MP 6855/1) para pedir medidor, reconexión o habilitación.</p>
         <div class="service-links">
           <a href="servicios/apto-electrico-epec.html" class="service-link-page">Ver qué incluye →</a>
-          <a href="https://wa.me/5493512712104?text=Hola%20MMO%2C%20necesito%20el%20Certificado%20de%20Apto%20El%C3%A9ctrico%20ERSeP%20para%20EPEC." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="service-link-wa">Cotizar</a>
+          <a href="https://wa.me/5493512712104?text=Hola%20MMO%2C%20necesito%20el%20Certificado%20de%20Apto%20El%C3%A9ctrico%20ERSeP%20para%20EPEC." target="_blank" rel="noopener" onclick="event.stopPropagation(); return trackClicSaliente(this.href, '_blank')" class="service-link-wa">Cotizar</a>
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" onclick="window.location.href='servicios/urgencias-electricas.html'">
         <div class="service-top">
           <div class="service-icon">
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
@@ -458,11 +401,11 @@
         <p class="service-desc">Cortes de luz, cortocircuitos, fugas a tierra, enchufes quemados y fallas eléctricas de urgencia todos los días del año.</p>
         <div class="service-links">
           <a href="servicios/urgencias-electricas.html" class="service-link-page">Ver qué incluye →</a>
-          <a href="https://wa.me/5493512712104?text=Hola%20MMO%2C%20necesito%20una%20reparaci%C3%B3n%20o%20urgencia%20el%C3%A9ctrica%20a%20domicilio." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="service-link-wa">Cotizar</a>
+          <a href="https://wa.me/5493512712104?text=Hola%20MMO%2C%20necesito%20una%20reparaci%C3%B3n%20o%20urgencia%20el%C3%A9ctrica%20a%20domicilio." target="_blank" rel="noopener" onclick="event.stopPropagation(); return trackClicSaliente(this.href, '_blank')" class="service-link-wa">Cotizar</a>
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" onclick="window.location.href='servicios/instalaciones-electricas.html'">
         <div class="service-top">
           <div class="service-icon">
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -473,11 +416,11 @@
         <p class="service-desc">Cableado desde cero o recambio total en viviendas, locales, oficinas e inmobiliarias. Circuitos de aires, tomas, puesta a tierra y luces LED.</p>
         <div class="service-links">
           <a href="servicios/instalaciones-electricas.html" class="service-link-page">Ver qué incluye →</a>
-          <a href="https://wa.me/5493512712104?text=Hola%20MMO%2C%20quiero%20consultar%20por%20una%20instalaci%C3%B3n%20el%C3%A9ctrica%20o%20iluminaci%C3%B3n." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="service-link-wa">Cotizar</a>
+          <a href="https://wa.me/5493512712104?text=Hola%20MMO%2C%20quiero%20consultar%20por%20una%20instalaci%C3%B3n%20el%C3%A9ctrica%20o%20iluminaci%C3%B3n." target="_blank" rel="noopener" onclick="event.stopPropagation(); return trackClicSaliente(this.href, '_blank')" class="service-link-wa">Cotizar</a>
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" onclick="window.location.href='servicios/pilares-electricos.html'">
         <div class="service-top">
           <div class="service-icon">
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M8 6h8M6 10h12"/></svg>
@@ -488,11 +431,11 @@
         <p class="service-desc">Armado, amurado y conexión de pilares monofásicos y trifásicos homologados según normativa vigente de EPEC, con jabalina y certificado.</p>
         <div class="service-links">
           <a href="servicios/pilares-electricos.html" class="service-link-page">Ver qué incluye →</a>
-          <a href="https://wa.me/5493512712104?text=Hola%20MMO%2C%20quiero%20cotizar%20la%20instalaci%C3%B3n%20de%20un%20pilar%20el%C3%A9ctrico%20homologado%20para%20EPEC." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="service-link-wa">Cotizar</a>
+          <a href="https://wa.me/5493512712104?text=Hola%20MMO%2C%20quiero%20cotizar%20la%20instalaci%C3%B3n%20de%20un%20pilar%20el%C3%A9ctrico%20homologado%20para%20EPEC." target="_blank" rel="noopener" onclick="event.stopPropagation(); return trackClicSaliente(this.href, '_blank')" class="service-link-wa">Cotizar</a>
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card" onclick="window.location.href='servicios/cercos-electricos.html'">
         <div class="service-top">
           <div class="service-icon">
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -503,15 +446,123 @@
         <p class="service-desc">Instalación de cercos eléctricos perimetrales con energizador homologado, sirena, batería de respaldo y cámaras de seguridad para casas y countries.</p>
         <div class="service-links">
           <a href="servicios/cercos-electricos.html" class="service-link-page">Ver qué incluye →</a>
-          <a href="https://wa.me/5493512712104?text=Hola%20MMO%2C%20quiero%20cotizar%20instalaci%C3%B3n%20de%20cerco%20el%C3%A9ctrico%20o%20c%C3%A1maras%20de%20seguridad." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="service-link-wa">Cotizar</a>
+          <a href="https://wa.me/5493512712104?text=Hola%20MMO%2C%20quiero%20cotizar%20instalaci%C3%B3n%20de%20cerco%20el%C3%A9ctrico%20o%20c%C3%A1maras%20de%20seguridad." target="_blank" rel="noopener" onclick="event.stopPropagation(); return trackClicSaliente(this.href, '_blank')" class="service-link-wa">Cotizar</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- SECCIÓN 2 (ENTRE SERVICIOS ELÉCTRICOS Y CÓMO TRABAJAMOS): ¿QUÉ TE ESTÁ PASANDO AHORA? REDISEÑADA CON ALTO IMPACTO -->
+<section class="problems-sec">
+  <div class="container">
+    <div class="problems-head">
+      <div>
+        <span class="section-label light">Diagnóstico rápido · 1 clic a WhatsApp</span>
+        <h2 class="section-title light">¿Qué te está <em>pasando ahora</em>?</h2>
+        <p class="section-desc light">Identificá tu urgencia o trámite, tocá la tarjeta y hablá directo con el matriculado con el mensaje ya redactado:</p>
+      </div>
+      <div class="problems-budget-box">
+        <div class="problems-budget-title">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          Mejoramos cualquier presupuesto
+        </div>
+        <div class="problems-budget-sub">
+          ¿Ya te pasaron precio por un trabajo o certificado? Mandanos el presupuesto por WhatsApp y te mejoramos la oferta con garantía escrita.
+        </div>
+      </div>
+    </div>
+
+    <div class="problems-grid">
+      <a href="https://wa.me/5493512712104?text=Hola%20MMO%20Electricistas%2C%20se%20me%20cort%C3%B3%20la%20luz%20y%20necesito%20revisi%C3%B3n%20el%C3%A9ctrica%20a%20domicilio." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="problem-card urgent">
+        <div>
+          <div class="problem-card-top">
+            <div class="problem-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <span class="problem-tag">Urgencia 24 hs</span>
+          </div>
+          <div class="problem-title">Se cortó la luz</div>
+          <div class="problem-desc">Te quedaste sin energía en toda la casa, local o en un sector mientras en la cuadra sí hay luz.</div>
+        </div>
+        <span class="problem-cta"><span>Escribir por este problema</span> <span>→</span></span>
+      </a>
+
+      <a href="https://wa.me/5493512712104?text=Hola%20MMO%20Electricistas%2C%20me%20salta%20la%20t%C3%A9rmica%20o%20el%20disyuntor%20y%20necesito%20que%20lo%20revisen." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="problem-card">
+        <div>
+          <div class="problem-card-top">
+            <div class="problem-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+            </div>
+            <span class="problem-tag">Tablero y fugas</span>
+          </div>
+          <div class="problem-title">Salta la térmica o el disyuntor</div>
+          <div class="problem-desc">Se baja sola al prender equipos, en días de humedad o no vuelve a subir. Detectamos la fuga real con instrumental.</div>
+        </div>
+        <span class="problem-cta"><span>Escribir por este problema</span> <span>→</span></span>
+      </a>
+
+      <a href="https://wa.me/5493512712104?text=Hola%20MMO%20Electricistas%2C%20hubo%20un%20cortocircuito%20o%20siento%20olor%20a%20cable%20quemado.%20%C2%BFPueden%20venir%20a%20revisar%3F" target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="problem-card urgent">
+        <div>
+          <div class="problem-card-top">
+            <div class="problem-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+            </div>
+            <span class="problem-tag">Atención prioritaria</span>
+          </div>
+          <div class="problem-title">Cortocircuito u olor a quemado</div>
+          <div class="problem-desc">Chispazos en un enchufe, llaves calientes o cables recalentados en el tablero. Salimos de inmediato.</div>
+        </div>
+        <span class="problem-cta"><span>Escribir por este problema</span> <span>→</span></span>
+      </a>
+
+      <a href="https://wa.me/5493512712104?text=Hola%20MMO%20Electricistas%2C%20me%20pidieron%20un%20certificado%20apto%20de%20EPEC.%20%C2%BFMe%20pasan%20informaci%C3%B3n%3F" target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="problem-card epec">
+        <div>
+          <div class="problem-card-top">
+            <div class="problem-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <span class="problem-tag">Matrícula MP 6855/1</span>
+          </div>
+          <div class="problem-title">¿Te pidieron un certificado apto de EPEC?</div>
+          <div class="problem-desc">Emitimos el Certificado ERSeP firmado por matriculado oficial para pedir medidor nuevo, mudanza o reconectar.</div>
+        </div>
+        <span class="problem-cta"><span>Consultar Certificado Apto EPEC</span> <span>→</span></span>
+      </a>
+
+      <a href="https://wa.me/5493512712104?text=Hola%20MMO%20Electricistas%2C%20tengo%20un%20tablero%20o%20instalaci%C3%B3n%20vieja%20y%20quiero%20presupuesto%20para%20actualizarlo." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="problem-card">
+        <div>
+          <div class="problem-card-top">
+            <div class="problem-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <span class="problem-tag">Normalización</span>
+          </div>
+          <div class="problem-title">Tablero o instalación vieja</div>
+          <div class="problem-desc">Cajas con tapones/fusibles antiguos, cables recalentados o falta de puesta a tierra y disyuntor diferencial.</div>
+        </div>
+        <span class="problem-cta"><span>Cotizar actualización</span> <span>→</span></span>
+      </a>
+
+      <a href="https://wa.me/5493512712104?text=Hola%20MMO%20Electricistas%2C%20necesito%20cotizar%20instalaci%C3%B3n%20de%20pilar%20y%20cerco%20el%C3%A9ctrico%20para%20country." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="problem-card epec">
+        <div>
+          <div class="problem-card-top">
+            <div class="problem-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="problem-tag">Countries y Lotes</span>
+          </div>
+          <div class="problem-title">Instalación de pilar y cerco eléctrico para country</div>
+          <div class="problem-desc">Colocación de pilares homologados EPEC, cercos eléctricos perimetrales y cámaras de seguridad.</div>
+        </div>
+        <span class="problem-cta"><span>Pedir cotización</span> <span>→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- SECCIÓN 3: CÓMO TRABAJAMOS PASO A PASO (01 A 04) -->
-<section class="steps-sec">
+<section class="steps-sec" style="border-top:1px solid rgba(59,130,246,0.18);">
   <div class="container">
     <span class="section-label light">Cómo trabajamos</span>
     <h2 class="section-title light">Cómo trabajamos, <em>paso a paso</em></h2>
@@ -531,7 +582,7 @@
       <div class="step-card">
         <div class="step-num">03</div>
         <h3 class="step-title">Presupuesto claro</h3>
-        <p class="step-desc">Revisamos la instalación, diagnosticamos la falla de raíz y te pasamos el presupuesto detallado antes de arrancar. Mejoramos cualquier presupuesto escrito.</p>
+        <p class="step-desc">Revisamos la instalación, diagnosticamos la falla de raíz y te pasamos el presupuesto detallado antes de arrancar. <strong> Mejoramos cualquier presupuesto escrito.</strong></p>
       </div>
       <div class="step-card">
         <div class="step-num">04</div>
@@ -555,9 +606,9 @@
 
         <ul class="why-points">
           <li>Habilitación oficial ERSeP MP 6855/1 (Categoría 2) para firmar certificados válidos ante EPEC y Municipalidad.</li>
+          <li>Mejoramos cualquier presupuesto escrito de otro electricista matriculado mantendo materiales homologados.</li>
           <li>Diagnóstico preciso con instrumental de medición para encontrar fugas o cortocircuitos sin romper de más.</li>
           <li>Ingreso autorizado a Countries y Barrios Cerrados con documentación y matrícula al día.</li>
-          <li>Presupuesto sin cargo en Córdoba y alrededores, con garantía real sobre cada trabajo.</li>
         </ul>
       </div>
 
@@ -567,21 +618,21 @@
           <a href="galeria.html" style="font-size:13px;font-weight:700;color:#60a5fa;text-decoration:none;">Ver galería completa →</a>
         </div>
         <div class="work-photos-grid" style="margin-top:0;grid-template-columns:1fr 1fr;">
-          <div class="work-photo-card" onclick="openLightbox('../img/trabajo-1.jpg','Armado y peinado de tablero eléctrico con térmicas y disyuntor')">
-            <img src="../img/trabajo-1.jpg" loading="lazy" alt="Armado de tablero eléctrico en Córdoba">
+          <div class="work-photo-card" onclick="openLightbox('../img/trabajo-2.jpg','Armado y peinado de tablero eléctrico con térmicas y disyuntor')">
+            <img src="../img/trabajo-2.jpg" loading="lazy" alt="Tablero con térmicas y disyuntor">
             <div class="work-photo-cap">Tablero eléctrico peinado y normalizado</div>
           </div>
-          <div class="work-photo-card" onclick="openLightbox('../img/trabajo-2.jpg','Instalación de protecciones diferenciales y térmicas por circuito')">
-            <img src="../img/trabajo-2.jpg" loading="lazy" alt="Tablero con térmicas y disyuntor">
-            <div class="work-photo-cap">Protecciones térmicas y disyuntor</div>
+          <div class="work-photo-card" onclick="openLightbox('img/certificado-apto-epec.jpg','Certificado Oficial de Instalación Eléctrica Apta ERSeP para EPEC')">
+            <img src="img/certificado-apto-epec.jpg" loading="lazy" alt="Certificado Apto Eléctrico EPEC">
+            <div class="work-photo-cap">Certificado Apto Eléctrico ERSeP / EPEC</div>
           </div>
-          <div class="work-photo-card" onclick="openLightbox('../img/trabajo-3.jpg','Adecuación de acometida y medidor según normativa EPEC')">
-            <img src="../img/trabajo-3.jpg" loading="lazy" alt="Adecuación para Apto Eléctrico EPEC">
-            <div class="work-photo-cap">Adecuación reglamentaria para EPEC</div>
+          <div class="work-photo-card" onclick="openLightbox('img/pilar-epec.jpg','Instalación de pilar eléctrico homologado para EPEC')">
+            <img src="img/pilar-epec.jpg" loading="lazy" alt="Pilar eléctrico homologado EPEC">
+            <div class="work-photo-cap">Instalación de pilar eléctrico EPEC</div>
           </div>
-          <div class="work-photo-card" onclick="openLightbox('../img/trabajo-4.jpg','Instalación eléctrica comercial e iluminación profesional')">
-            <img src="../img/trabajo-4.jpg" loading="lazy" alt="Instalación eléctrica en Córdoba">
-            <div class="work-photo-cap">Instalación e iluminación en obra</div>
+          <div class="work-photo-card" onclick="openLightbox('img/cerco-electrico.jpg','Instalación de cerco eléctrico perimetral para country y vivienda')">
+            <img src="img/cerco-electrico.jpg" loading="lazy" alt="Cerco eléctrico en Córdoba">
+            <div class="work-photo-cap">Cerco eléctrico perimetral</div>
           </div>
         </div>
       </div>
@@ -783,14 +834,14 @@
       </details>
 
       <details class="faq-item">
-        <summary>¿Sabemos cuánto va a salir el trabajo antes de empezar?</summary>
-        <p>Siempre. Revisamos la falla o el proyecto y te damos el presupuesto cerrado antes de hacer el trabajo. Además, mejoramos cualquier presupuesto escrito de otro matriculado.</p>
+        <summary>¿Es verdad que mejoran cualquier presupuesto?</summary>
+        <p>Sí. Si ya tenés un presupuesto escrito de otro electricista matriculado por el mismo trabajo o certificado, presentanoslo y te mejoramos la propuesta manteniendo materiales homologados y garantía escrita.</p>
       </details>
     </div>
   </div>
 </section>
 
-<!-- SECCIÓN 8: CONTACTO COMPLETO (CON ÍCONOS VECTORIALES SVG) -->
+<!-- SECCIÓN 8: CONTACTO COMPLETO -->
 <section id="contacto" class="contact-sec">
   <div class="container">
     <div class="contact-grid">
@@ -971,4 +1022,3 @@
 <script src="mmo-v2.js"></script>
 </body>
 </html>
-

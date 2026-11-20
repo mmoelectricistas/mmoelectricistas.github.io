@@ -1,4 +1,4 @@
-// MMO 2.0 - Motor de Conversión, Scroll-Reveal, Popup de Agente WhatsApp, Validación y Tracking Google Ads / GA4
+// MMO 2.0 - Motor de Conversión, Scroll-Reveal, Popup Contextual de Agente por Servicio, Tarjetas Clickeables y Tracking Google Ads / GA4
 (function () {
   // 1. Detectar si el cliente entró desde un anuncio de Google Ads (gclid / wbraid / gbraid / utm)
   try {
@@ -51,13 +51,28 @@
     return false;
   };
 
-  // 3. Animación Scroll-Reveal progresiva al bajar con la ruedita o el dedo en celular
+  // 3. Hacer que al tocar CUALQUIER PARTE del cuadrado de un servicio (.service-card) lleve a "Ver qué incluye"
+  function initClickableServiceCards() {
+    document.querySelectorAll('.service-card').forEach(function (card) {
+      card.addEventListener('click', function (e) {
+        // Si tocó específicamente el botón verde de Cotizar o un link directo, respetar ese link
+        if (e.target.closest('.service-link-wa') || e.target.closest('a')) return;
+        var pageLink = card.querySelector('.service-link-page');
+        if (pageLink && pageLink.getAttribute('href')) {
+          window.location.href = pageLink.getAttribute('href');
+        }
+      });
+    });
+  }
+
+  // 4. Animación Scroll-Reveal progresiva al bajar con la ruedita o el dedo en celular
   function initScrollReveal() {
     var selectors = [
       '.prof-card-standalone',
       '.section-label',
       '.section-title',
       '.section-desc',
+      '.problems-budget-box',
       '.problem-card',
       '.service-card',
       '.step-card',
@@ -71,9 +86,8 @@
       '.why-points li'
     ];
     var elements = document.querySelectorAll(selectors.join(','));
-    elements.forEach(function (el, index) {
+    elements.forEach(function (el) {
       el.classList.add('rv');
-      // Escalonar tarjetas hermanas dentro de una misma grilla
       var parent = el.parentElement;
       if (parent) {
         var siblings = Array.prototype.slice.call(parent.children);
@@ -100,10 +114,43 @@
     }
   }
 
-  // 4. Submódulo / Globo emergente de WhatsApp con Silueta de Agente Técnico Animado
+  // 5. Submódulo / Globo emergente de WhatsApp con Silueta de Agente Técnico Animado
+  //    Personalizado según el servicio que está viendo el usuario y activado al bajar a "Qué incluye"
   function initWhatsAppAgentPopup() {
     if (document.getElementById('wa-popup')) return;
-    var waMsg = 'Hola MMO, tengo un problema eléctrico y necesito asesoramiento. ¿Me podrían ayudar?';
+
+    var path = (window.location.pathname || '').toLowerCase();
+    var popTitle = 'MMO Electricistas';
+    var popRole = '● Matriculado en línea ahora';
+    var popQuestion = '¿Necesitás asesoramiento con un tema eléctrico? Estamos para ayudarte. ¿Nos querés comentar?';
+    var waMsg = 'Hola MMO 👋, tengo un problema eléctrico y necesito asesoramiento. ¿Me podrían ayudar?';
+
+    if (path.indexOf('tableros-electricos') !== -1) {
+      popTitle = 'Asesor de Tableros MMO';
+      popQuestion = '¿Necesitás asesoramiento con tu tablero eléctrico, térmicas o disyuntor? Estamos para ayudarte. ¿Nos querés comentar?';
+      waMsg = 'Hola MMO 👋, estoy viendo lo que incluye el servicio de Tableros Eléctricos y necesito asesoramiento. ¿Me podrían ayudar?';
+    } else if (path.indexOf('apto-electrico-epec') !== -1) {
+      popTitle = 'Especialista Apto EPEC';
+      popQuestion = '¿Necesitás asesoramiento con tu Certificado de Apto Eléctrico para EPEC (ERSeP)? Estamos para ayudarte. ¿Nos querés comentar?';
+      waMsg = 'Hola MMO 👋, estoy viendo lo que incluye el Certificado de Apto Eléctrico para EPEC y necesito asesoramiento. ¿Me podrían ayudar?';
+    } else if (path.indexOf('urgencias-electricas') !== -1) {
+      popTitle = 'Guardia Eléctrica 24 hs';
+      popQuestion = '¿Tenés una urgencia o falla eléctrica en este momento? Estamos de guardia para ayudarte. ¿Nos querés comentar?';
+      waMsg = 'Hola MMO 👋, tengo una urgencia eléctrica y necesito asesoramiento inmediato. ¿Me podrían ayudar?';
+    } else if (path.indexOf('instalaciones-electricas') !== -1) {
+      popTitle = 'Asesor de Instalaciones';
+      popQuestion = '¿Necesitás asesoramiento para tu instalación eléctrica o proyecto de iluminación? Estamos para ayudarte. ¿Nos querés comentar?';
+      waMsg = 'Hola MMO 👋, estoy viendo el servicio de Instalaciones e Iluminación y necesito asesoramiento. ¿Me podrían ayudar?';
+    } else if (path.indexOf('pilares-electricos') !== -1) {
+      popTitle = 'Especialista Pilares EPEC';
+      popQuestion = '¿Necesitás asesoramiento para colocar o adecuar tu pilar eléctrico homologado por EPEC? Estamos para ayudarte. ¿Nos querés comentar?';
+      waMsg = 'Hola MMO 👋, estoy viendo lo que incluye la instalación de Pilares Eléctricos EPEC y necesito asesoramiento. ¿Me podrían ayudar?';
+    } else if (path.indexOf('cercos-electricos') !== -1) {
+      popTitle = 'Especialista Cercos MMO';
+      popQuestion = '¿Necesitás asesoramiento sobre cercos eléctricos o seguridad para tu casa o country? Estamos para ayudarte. ¿Nos querés comentar?';
+      waMsg = 'Hola MMO 👋, estoy viendo la instalación de Cercos Eléctricos y Seguridad y necesito asesoramiento. ¿Me podrían ayudar?';
+    }
+
     var waHref = 'https://wa.me/5493512712104?text=' + encodeURIComponent(waMsg);
 
     var pop = document.createElement('div');
@@ -115,7 +162,6 @@
       '<button type="button" class="wa-pop-close" id="wa-pop-close" aria-label="Cerrar aviso">×</button>' +
       '<div class="wa-pop-header">' +
         '<div class="wa-agent-avatar" aria-hidden="true">' +
-          '<!-- Silueta vectorial animada de agente técnico matriculado con casco y auricular -->' +
           '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' +
             '<path d="M4 11a8 8 0 0 1 16 0"/>' +
             '<path d="M3 11h18"/>' +
@@ -127,13 +173,11 @@
           '<span class="wa-agent-status"></span>' +
         '</div>' +
         '<div>' +
-          '<div class="wa-pop-name">MMO Electricistas</div>' +
-          '<span class="wa-pop-role">● Matriculado en línea ahora</span>' +
+          '<div class="wa-pop-name">' + popTitle + '</div>' +
+          '<span class="wa-pop-role">' + popRole + '</span>' +
         '</div>' +
       '</div>' +
-      '<div class="wa-pop-msg">' +
-        '¿Necesitás asesoramiento con un tema eléctrico? Estamos para ayudarte. ¿Nos querés comentar?' +
-      '</div>' +
+      '<div class="wa-pop-msg">' + popQuestion + '</div>' +
       '<a href="' + waHref + '" target="_blank" rel="noopener" class="wa-pop-cta" id="wa-pop-btn">' +
         '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>' +
         'Escribir ahora' +
@@ -145,7 +189,6 @@
     if (closeBtn) {
       closeBtn.addEventListener('click', function () {
         pop.classList.remove('show');
-        try { sessionStorage.setItem('mmo_wa_pop_closed', '1'); } catch (e) {}
       });
     }
     var ctaBtn = document.getElementById('wa-pop-btn');
@@ -156,23 +199,30 @@
       });
     }
 
-    try {
-      if (sessionStorage.getItem('mmo_wa_pop_closed') !== '1') {
-        setTimeout(function () {
-          pop.classList.add('show');
-        }, 2200);
-      }
-    } catch (e) {
-      setTimeout(function () { pop.classList.add('show'); }, 2200);
+    // Mostrar el cuadradito de Agente cuando el usuario baje hasta el apartado "Qué incluye" (en subpáginas) o Servicios (en Home)
+    var triggerTarget = document.querySelector('.checklist-split') || document.querySelector('.checklist-items') || document.getElementById('servicios');
+    if (triggerTarget && 'IntersectionObserver' in window) {
+      var popObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            pop.classList.add('show');
+            popObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      popObs.observe(triggerTarget);
+    } else {
+      setTimeout(function () { pop.classList.add('show'); }, 2500);
     }
   }
 
   window.addEventListener('DOMContentLoaded', function () {
+    initClickableServiceCards();
     initScrollReveal();
     initWhatsAppAgentPopup();
   });
 
-  // 5. Barra superior de progreso de lectura
+  // 6. Barra superior de progreso de lectura
   window.addEventListener('scroll', function () {
     var bar = document.getElementById('scroll-progress');
     if (!bar) return;
@@ -182,13 +232,13 @@
     bar.style.width = scrolled + '%';
   }, { passive: true });
 
-  // 6. Menú hamburguesa móvil
+  // 7. Menú hamburguesa móvil
   window.toggleMobileDrawer = function () {
     var d = document.getElementById('mobile-drawer');
     if (d) d.classList.toggle('open');
   };
 
-  // 7. Botones [data-quote]: scrollean suave al formulario, pre-seleccionan servicio/zona y enfocan Nombre
+  // 8. Botones [data-quote]: scrollean suave al formulario, pre-seleccionan servicio/zona y enfocan Nombre
   document.addEventListener('click', function (e) {
     var btn = e.target.closest('[data-quote]');
     if (!btn) return;
@@ -218,7 +268,7 @@
     }, 450);
   });
 
-  // 8. Validación real de formularios + Paso a WhatsApp
+  // 9. Validación real de formularios + Mensaje interactivo con Emojis para WhatsApp (Punto 12)
   window.handleQuoteSubmit = function (e, form) {
     if (e) e.preventDefault();
     var nombreInput = form.querySelector('input[name="nombre"]');
@@ -253,15 +303,14 @@
     }
 
     var servicio = servSelect ? servSelect.value : 'Trabajo eléctrico';
-    var zona = (zonaInput && zonaInput.value.trim()) ? zonaInput.value.trim() : 'Córdoba';
-    var detalle = (msgInput && msgInput.value.trim()) ? msgInput.value.trim() : '';
+    var zona = (zonaInput && zonaInput.value.trim()) ? zonaInput.value.trim() : 'Córdoba Capital';
+    var detalle = (msgInput && msgInput.value.trim()) ? msgInput.value.trim() : 'Solicito presupuesto';
 
-    var textoWA = 'Hola MMO Electricistas, soy *' + nombre + '* (Tel: ' + tel + ').\n' +
-                  '• *Necesito:* ' + servicio + '\n' +
-                  '• *Barrio / Localidad:* ' + zona;
-    if (detalle) {
-      textoWA += '\n• *Detalle:* ' + detalle;
-    }
+    var textoWA = 'Hola MMO Electricistas 👋, soy *' + nombre + '* (📱 Tel: ' + tel + ').\n' +
+                  '• ☝️ *Necesito:* ' + servicio + '\n' +
+                  '• 📍 *Barrio / Localidad:* ' + zona + '\n' +
+                  '• 📝 *Detalle:* ' + detalle;
+
     var waUrl = 'https://wa.me/5493512712104?text=' + encodeURIComponent(textoWA);
 
     var fieldsWrap = form.querySelector('.qform-fields');
@@ -285,7 +334,7 @@
     }
   });
 
-  // 9. Buscador en vivo de Zonas y Barrios
+  // 10. Buscador en vivo de Zonas y Barrios
   window.filtrarTarjetasZona = function (q) {
     var query = (q || '').toLowerCase().trim();
     document.querySelectorAll('.zcard').forEach(function (card) {
@@ -294,7 +343,7 @@
     });
   };
 
-  // 10. Lightbox de fotos de trabajos
+  // 11. Lightbox de fotos de trabajos
   window.openLightbox = function (src, caption) {
     var lb = document.getElementById('mmo-lightbox');
     if (!lb) return;

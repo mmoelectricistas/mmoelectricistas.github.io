@@ -149,18 +149,32 @@
 
 <section style="background:var(--gray-100);">
   <div class="container">
-    <span class="section-label">Checklist de reparaciones</span>
-    <h2 class="section-title">Qué fallas resolvemos <em>a domicilio</em></h2>
-    <ul class="checklist-items" style="max-width:780px;">
-      <li><span class="chk">✓</span> Cortes de luz totales o en un sector de la casa mientras en la calle hay energía</li>
-      <li><span class="chk">✓</span> Llaves térmicas y disyuntores diferenciales que saltan solos o se quemaron</li>
-      <li><span class="chk">✓</span> Detección de fugas de corriente a tierra en días de lluvia o humedad</li>
-      <li><span class="chk">✓</span> Enchufes, llaves de luz y tomacorrientes derretidos o con falso contacto</li>
-      <li><span class="chk">✓</span> Cables recalentados, empalmes sulfatados en cajas de paso o acometidas</li>
-      <li><span class="chk">✓</span> Reparación de fases caídas en comercios, bombas de agua y tableros generales</li>
-    </ul>
+    <div class="checklist-split">
+      <div>
+        <span class="section-label">Checklist de reparaciones</span>
+        <h2 class="section-title">Qué fallas resolvemos <em>a domicilio las 24 hs</em></h2>
+        <ul class="checklist-items">
+          <li><span class="chk">✓</span> Cortes de luz totales o en un sector de la casa mientras en la calle hay energía</li>
+          <li><span class="chk">✓</span> Llaves térmicas y disyuntores diferenciales que saltan solos o se quemaron</li>
+          <li><span class="chk">✓</span> Detección de fugas de corriente a tierra en días de lluvia o humedad</li>
+          <li><span class="chk">✓</span> Enchufes, llaves de luz y tomacorrientes derretidos o con falso contacto</li>
+          <li><span class="chk">✓</span> Cables recalentados, empalmes sulfatados en cajas de paso o acometidas</li>
+          <li><span class="chk">✓</span> Reparación de fases caídas en comercios, bombas de agua y tableros generales</li>
+        </ul>
+      </div>
+      <div>
+        <div class="work-photos-grid" style="grid-template-columns:1fr;margin-top:0;">
+          <div class="work-photo-card complete-img" onclick="openLightbox('../img/urgencias-noche.jpg','Guardia de urgencias eléctricas 24 horas en Córdoba')">
+            <img src="../img/urgencias-noche.jpg" alt="Electricista de urgencia 24 horas de noche en Córdoba">
+            <div class="work-photo-cap">Atención de urgencias eléctricas nocturnas y de fin de semana en Córdoba (Tocar para ampliar)</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+<div id="mmo-lightbox" class="lightbox-backdrop" onclick="closeLightbox()"><button type="button" class="lightbox-close">×</button><img src="" alt="Urgencias 24 hs"><div class="lightbox-cap"></div></div>
 
 <footer class="site-footer">
   <div class="footer-bottom" style="margin-top:0;padding-top:0;border-top:none;">
