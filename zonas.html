@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/x-icon" href="/favicon.ico?v=3">
+<title>Zonas de Cobertura · Electricista en Córdoba Capital, Countries y Gran Córdoba | MMO</title>
+<meta name="description" content="Electricista matriculado a domicilio en Córdoba Capital, Nueva Córdoba, Centro, Alberdi, General Paz, Zona Sur, Zona Norte, Villa Allende, La Calera y Carlos Paz.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRC3YL6FTY"></script>
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WDMZDQQ8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRC3YL6FTY');
+  gtag('config', 'AW-16953647837');
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="mmo-v2.css">
+<style>
+  #coverage-leaflet { width: 100%; height: 420px; border-radius: 14px; border: 1.5px solid var(--gray-200); background: #eaf1ff; }
+  #coverage-leaflet .leaflet-tile-pane { filter: grayscale(1) sepia(1) hue-rotate(178deg) saturate(2.6) brightness(1.04) contrast(0.95); }
+</style>
+</head>
+<body>
+<div id="scroll-progress"></div>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo-wrap">
+    <img src="img/logo-mmo.jpg" width="40" height="40" class="nav-logo-img" alt="MMO Electricistas">
+    <div><div class="nav-logo-text">MMO <span>Electricistas</span></div><span class="nav-logo-sub">Cobertura Córdoba · MP 6855/1</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="servicios/tableros-electricos.html">Tableros</a></li>
+    <li><a href="servicios/apto-electrico-epec.html">Apto EPEC</a></li>
+    <li><a href="servicios/pilares-electricos.html">Pilares</a></li>
+    <li><a href="servicios/cercos-electricos.html">Cercos</a></li>
+    <li><a href="galeria.html">Galería</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="#hero-quote-form" data-quote class="nav-cta">Pedir presupuesto</a>
+  </div>
+</nav>
+
+<section class="hero" style="padding-bottom:60px;">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="breadcrumb"><a href="index.html">Inicio</a> / <span>Zonas de Cobertura</span></div>
+      <div class="hero-badge">Atención a Domicilio 24 hs · ERSeP MP 6855/1</div>
+      <h1>Electricista matriculado en <em id="dynamic-zona-title">Córdoba Capital y alrededores</em></h1>
+      <p class="hero-desc">
+        Nuestra base está en Córdoba Capital y llegamos a todos los barrios, countries de Zona Sur y Zona Norte, Villa Allende, Mendiolaza, La Calera y Villa Carlos Paz. Tocá tu zona abajo para pre-cargar tu barrio y consultar disponibilidad inmediata.
+      </p>
+      <div class="budget-guarantee-pill">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span><strong>Mejoramos cualquier presupuesto</strong></span>
+      </div>
+      <div class="hero-actions">
+        <a href="#hero-quote-form" data-quote class="btn-primary">Pedir presupuesto en mi zona →</a>
+      </div>
+    </div>
+
+    <div class="quote-card" id="hero-quote-form">
+      <form onsubmit="return handleQuoteSubmit(event, this)" novalidate>
+        <div class="qform-fields">
+          <div class="quote-card-head"><h3>Consultá en tu barrio</h3><span class="quote-live-pill">A domicilio</span></div>
+          <p class="quote-card-sub">Tu zona ya queda cargada para coordinar la visita más rápido:</p>
+          <div class="quote-guarantee-tag">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Mejoramos cualquier presupuesto</span>
+          </div>
+          <div class="qform-row qform-group">
+            <div><label class="qform-label">Tu nombre *</label><input type="text" name="nombre" class="qform-input" placeholder="Ej: MMO" required><span class="qform-err-msg">Ingresá tu nombre</span></div>
+            <div><label class="qform-label">Tu teléfono *</label><input type="tel" name="telefono" class="qform-input" placeholder="Ej: 351 000-0000" required><span class="qform-err-msg">Ingresá tu teléfono</span></div>
+          </div>
+          <div class="qform-group">
+            <label class="qform-label">Barrio, Country o Localidad</label>
+            <input type="text" name="zona" class="qform-input" value="Córdoba Capital" placeholder="Ej: Nueva Córdoba, Manantiales, Villa Allende...">
+          </div>
+          <div class="qform-group">
+            <label class="qform-label">¿Qué necesitás?</label>
+            <select name="servicio" class="qform-select">
+              <option value="Certificado de Apto Eléctrico para EPEC (ERSeP)">Certificado de Apto Eléctrico para EPEC (ERSeP)</option>
+              <option value="Tableros eléctricos, térmicas y disyuntores">Tableros eléctricos, térmicas y disyuntores</option>
+              <option value="Reparación o Urgencia eléctrica 24 hs">Reparación o Urgencia eléctrica 24 hs</option>
+              <option value="Instalación eléctrica domiciliaria o comercial">Instalación eléctrica domiciliaria o comercial</option>
+              <option value="Instalación de pilar eléctrico reglamentario">Instalación de pilar eléctrico reglamentario</option>
+              <option value="Instalación de cerco eléctrico">Instalación de cerco eléctrico</option>
+            </select>
+          </div>
+          <div class="qform-group"><label class="qform-label">Detalle</label><textarea name="mensaje" class="qform-textarea" placeholder="Contanos qué necesitás hacer en tu domicilio o local..."></textarea></div>
+          <button type="submit" class="qform-submit">Consultar por WhatsApp →</button>
+        </div>
+        <div class="qform-thanks">
+          <div class="qform-thanks-icon">✓</div>
+          <h4 style="font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;margin-bottom:6px;">¡Gracias, <span class="thanks-name"></span>!</h4>
+          <a href="#" target="_blank" rel="noopener" class="btn-wa-hero thanks-wa-btn" style="width:100%;justify-content:center;">Seguir por WhatsApp →</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- LAS 9 TARJETAS DE ZONAS + BUSCADOR -->
+<section class="zonas-sec">
+  <div class="container">
+    <div class="zonas-toolbar">
+      <div>
+        <span class="section-label">Zonas y Barrios</span>
+        <h2 class="section-title" style="margin-bottom:4px;">Tocá tu zona para <em>seleccionarla en el formulario</em></h2>
+      </div>
+      <input type="text" class="zonas-search" placeholder="Filtrar barrio o localidad..." oninput="filtrarTarjetasZona(this.value)">
+    </div>
+
+    <div class="zonas-grid">
+      <div class="zcard" data-quote data-zone="Córdoba Capital" data-barrios="cordoba capital nueva cordoba centro alberdi general paz">
+        <div class="zcard-title">Córdoba Capital</div>
+        <div class="zcard-sub">Casi todo nuestro trabajo diario · Urgencias 24 hs</div>
+        <div class="zcard-chips"><span class="zchip">Nueva Córdoba</span><span class="zchip">Centro</span><span class="zchip">Alberdi</span><span class="zchip">General Paz</span></div>
+        <span class="zcard-cta">Seleccionar Córdoba Capital →</span>
+      </div>
+      <div class="zcard" data-quote data-zone="Nueva Córdoba" data-barrios="nueva cordoba parque sarmiento buen pastor">
+        <div class="zcard-title">Nueva Córdoba</div>
+        <div class="zcard-sub">Departamentos de alquiler y Aptos EPEC para mudanzas</div>
+        <div class="zcard-chips"><span class="zchip">Nueva Córdoba</span><span class="zchip">Parque Sarmiento</span><span class="zchip">Bajo Gálvez</span></div>
+        <span class="zcard-cta">Seleccionar Nueva Córdoba →</span>
+      </div>
+      <div class="zcard" data-quote data-zone="Centro y Barrio Güemes" data-barrios="centro guemes cofico alta cordoba">
+        <div class="zcard-title">Centro · Güemes · Cofico</div>
+        <div class="zcard-sub">Oficinas, estudios, locales comerciales y consorcios</div>
+        <div class="zcard-chips"><span class="zchip">Centro</span><span class="zchip">Barrio Güemes</span><span class="zchip">Cofico</span><span class="zchip">Alta Córdoba</span></div>
+        <span class="zcard-cta">Seleccionar esta zona →</span>
+      </div>
+      <div class="zcard" data-quote data-zone="Alberdi y Alto Alberdi" data-barrios="alberdi alto alberdi observatorio villa paez">
+        <div class="zcard-title">Alberdi y Alto Alberdi</div>
+        <div class="zcard-sub">Departamentos de estudiantes, casas y medidores EPEC</div>
+        <div class="zcard-chips"><span class="zchip">Alberdi</span><span class="zchip">Alto Alberdi</span><span class="zchip">Observatorio</span><span class="zchip">Villa Páez</span></div>
+        <span class="zcard-cta">Seleccionar Alberdi →</span>
+      </div>
+      <div class="zcard" data-quote data-zone="General Paz y Juniors" data-barrios="general paz juniors pueyrredon san vicente">
+        <div class="zcard-title">General Paz y Juniors</div>
+        <div class="zcard-sub">Edificios, locales gastronómicos y casas antiguas</div>
+        <div class="zcard-chips"><span class="zchip">General Paz</span><span class="zchip">Juniors</span><span class="zchip">Pueyrredón</span><span class="zchip">San Vicente</span></div>
+        <span class="zcard-cta">Seleccionar General Paz →</span>
+      </div>
+      <div class="zcard" data-quote data-zone="Zona Sur y Countries" data-barrios="zona sur manantiales docta tejas del sur canuelas jardin">
+        <div class="zcard-title">Zona Sur y Countries</div>
+        <div class="zcard-sub">Barrios cerrados, pilares EPEC y cercos eléctricos</div>
+        <div class="zcard-chips"><span class="zchip">Manantiales</span><span class="zchip">Docta</span><span class="zchip">Barrio Jardín</span><span class="zchip">Countries</span></div>
+        <span class="zcard-cta">Seleccionar Zona Sur →</span>
+      </div>
+      <div class="zcard" data-quote data-zone="Zona Norte y Cerro" data-barrios="zona norte cerro de las rosas urca villa belgrano arguello">
+        <div class="zcard-title">Zona Norte y Cerro</div>
+        <div class="zcard-sub">Viviendas, cercos perimetrales, tableros e iluminación</div>
+        <div class="zcard-chips"><span class="zchip">Cerro de las Rosas</span><span class="zchip">Urca</span><span class="zchip">Villa Belgrano</span><span class="zchip">Argüello</span></div>
+        <span class="zcard-cta">Seleccionar Zona Norte →</span>
+      </div>
+      <div class="zcard" data-quote data-zone="Villa Allende y La Calera" data-barrios="villa allende la calera mendiolaza unquillo">
+        <div class="zcard-title">Villa Allende y La Calera</div>
+        <div class="zcard-sub">Sierras Chicas y barrios privados del oeste</div>
+        <div class="zcard-chips"><span class="zchip">Villa Allende</span><span class="zchip">La Calera</span><span class="zchip">Mendiolaza</span><span class="zchip">Unquillo</span></div>
+        <span class="zcard-cta">Seleccionar esta zona →</span>
+      </div>
+      <div class="zcard" data-quote data-zone="Villa Carlos Paz e Interior" data-barrios="villa carlos paz alta gracia jesus maria rio segundo">
+        <div class="zcard-title">Villa Carlos Paz y Gran Córdoba</div>
+        <div class="zcard-sub">Trabajos coordinados, obras completas y pilares</div>
+        <div class="zcard-chips"><span class="zchip">Villa Carlos Paz</span><span class="zchip">Alta Gracia</span><span class="zchip">Jesús María</span><span class="zchip">Río Segundo</span></div>
+        <span class="zcard-cta">Seleccionar esta zona →</span>
+      </div>
+    </div>
+
+    <!-- MAPA INTERACTIVO AZUL Y BLANCO DE MMO -->
+    <div style="margin-top:48px;">
+      <span class="section-label">Mapa interactivo de cobertura</span>
+      <h3 class="section-title" style="font-size:28px;">Radio de atención en <em>Córdoba y alrededores</em></h3>
+      <div id="coverage-leaflet"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-bottom" style="margin-top:0;padding-top:0;border-top:none;">
+    <span>© 2026 MMO Electricistas Matriculados · Hasan Chumacero MP 6855/1 · Córdoba</span>
+    <a href="index.html" style="color:#fde047;text-decoration:none;font-weight:700;">← Volver a la página principal</a>
+  </div>
+</footer>
+
+<script src="mmo-v2.js"></script>
+<script>
+  // Carga diferida del mapa Leaflet azul y blanco de MMO
+  (function () {
+    var box = document.getElementById('coverage-leaflet');
+    if (!box) return;
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+    document.head.appendChild(link);
+    var s = document.createElement('script');
+    s.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    s.onload = function () {
+      var map = L.map('coverage-leaflet', { scrollWheelZoom: false }).setView([-31.4167, -64.1833], 9);
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 14, attribution: 'MMO Electricistas'
+      }).addTo(map);
+      L.circle([-31.4167, -64.1833], { color: '#1a56db', weight: 2, fillColor: '#3b82f6', fillOpacity: 0.16, radius: 38000 }).addTo(map);
+      L.circleMarker([-31.4167, -64.1833], { radius: 8, color: '#fff', weight: 3, fillColor: '#1a56db', fillOpacity: 1 }).addTo(map).bindPopup('<b>MMO Electricistas</b><br>Base Córdoba Capital · MP 6855/1');
+    };
+    document.body.appendChild(s);
+  })();
+</script>
+</body>
+</html>
+
+
+
+
+

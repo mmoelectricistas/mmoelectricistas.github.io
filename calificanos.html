@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/x-icon" href="/favicon.ico?v=3">
+<title>¿Cómo fue tu experiencia con MMO Electricistas? · Calificanos</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="mmo-v2.css">
+<style>
+  .star-btn {
+    background: none; border: none; font-size: 46px; color: #475569; cursor: pointer;
+    transition: transform 0.15s, color 0.15s;
+  }
+  .star-btn.active, .star-btn:hover { color: #f5b301; transform: scale(1.12); }
+</style>
+</head>
+<body style="background:var(--navy);color:#fff;min-height:100vh;display:flex;flex-direction:column;">
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo-wrap">
+    <img src="img/logo-mmo.jpg" width="40" height="40" class="nav-logo-img" alt="MMO Electricistas">
+    <div><div class="nav-logo-text">MMO <span>Electricistas</span></div><span class="nav-logo-sub">Tu opinión nos importa</span></div>
+  </a>
+  <div class="nav-actions">
+    <a href="index.html" class="nav-cta" style="animation:none;">← Volver al sitio</a>
+  </div>
+</nav>
+
+<main style="flex:1;display:flex;align-items:center;justify-content:center;padding:40px 5%;">
+  <div style="max-width:520px;width:100%;background:var(--navy2);border:1px solid rgba(59,130,246,0.3);border-radius:18px;padding:36px 28px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,0.45);">
+    <span class="hero-badge" style="margin-bottom:14px;">MMO Electricistas · Córdoba</span>
+    <h1 style="font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;line-height:1.05;margin-bottom:10px;">
+      ¿Cómo fue tu experiencia con nuestro trabajo?
+    </h1>
+    <p style="font-size:15px;color:#cbd5e1;margin-bottom:20px;">Tocá la cantidad de estrellas para calificar la atención recibida:</p>
+
+    <div id="stars-wrap" style="display:flex;justify-content:center;gap:8px;margin-bottom:24px;">
+      <button type="button" class="star-btn" onclick="selectRating(1)">★</button>
+      <button type="button" class="star-btn" onclick="selectRating(2)">★</button>
+      <button type="button" class="star-btn" onclick="selectRating(3)">★</button>
+      <button type="button" class="star-btn" onclick="selectRating(4)">★</button>
+      <button type="button" class="star-btn" onclick="selectRating(5)">★</button>
+    </div>
+
+    <!-- Resultado 4-5 estrellas: lleva directo a Google Maps -->
+    <div id="good-review-box" style="display:none;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.4);border-radius:12px;padding:22px;">
+      <div style="font-size:28px;margin-bottom:6px;">🙌</div>
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:800;color:#fff;margin-bottom:6px;">¡Muchas gracias por tu confianza!</h3>
+      <p style="font-size:14px;color:#cbd5e1;margin-bottom:18px;">Tu reseña en Google nos ayuda muchísimo a que más vecinos de Córdoba conozcan nuestro trabajo:</p>
+      <a href="https://maps.app.goo.gl/cTXVXeLkv4k5XxWz5" target="_blank" rel="noopener" class="btn-wa-hero" style="width:100%;justify-content:center;">
+        ★ Dejar mi reseña en Google Maps →
+      </a>
+    </div>
+
+    <!-- Resultado 1-3 estrellas: formulario privado de mejora (protege reputación en Google) -->
+    <div id="private-feedback-box" style="display:none;text-align:left;background:var(--white);color:var(--text);border-radius:12px;padding:22px;">
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;margin-bottom:6px;">Queremos resolverlo hoy mismo</h3>
+      <p style="font-size:13px;color:#475569;margin-bottom:14px;">Lamentamos que algo no haya salido como esperabas. Contanos qué pasó para que Hasan se comunique con vos personalmente y lo solucione:</p>
+      <div class="qform-group">
+        <label class="qform-label">Tu nombre</label>
+        <input type="text" id="fb-name" class="qform-input" placeholder="Tu nombre">
+      </div>
+      <div class="qform-group">
+        <label class="qform-label">¿Qué podemos mejorar o revisar?</label>
+        <textarea id="fb-msg" class="qform-textarea" placeholder="Escribí tu comentario acá..."></textarea>
+      </div>
+      <button type="button" onclick="sendPrivateFeedback()" class="qform-submit">Enviar comentario directo a dirección →</button>
+    </div>
+  </div>
+</main>
+
+<script>
+  function selectRating(n) {
+    var btns = document.querySelectorAll('.star-btn');
+    btns.forEach(function (b, idx) {
+      b.classList.toggle('active', idx < n);
+    });
+    document.getElementById('good-review-box').style.display = (n >= 4) ? 'block' : 'none';
+    document.getElementById('private-feedback-box').style.display = (n <= 3) ? 'block' : 'none';
+  }
+  function sendPrivateFeedback() {
+    var name = document.getElementById('fb-name').value || 'Cliente';
+    var msg = document.getElementById('fb-msg').value || '';
+    var wa = 'https://wa.me/5493512712104?text=' + encodeURIComponent('Hola Hasan (MMO), soy ' + name + ' y quería comentarte una sugerencia sobre un trabajo: ' + msg);
+    window.open(wa, '_blank');
+  }
+</script>
+</body>
+</html>
+
+
+
+

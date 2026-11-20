@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/x-icon" href="/favicon.ico?v=3">
+<title>Electricista 24 Horas en Córdoba · Reparaciones y Urgencias | MMO Electricistas</title>
+<meta name="description" content="Reparaciones eléctricas y urgencias las 24 horas en Córdoba. Cortes de luz, cortocircuitos, térmicas y disyuntores que saltan. Matriculado ERSeP MP 6855/1.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XRC3YL6FTY"></script>
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WDMZDQQ8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XRC3YL6FTY');
+  gtag('config', 'AW-16953647837');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../mmo-v2.css">
+</head>
+<body>
+<div id="scroll-progress"></div>
+
+<nav class="site-nav">
+  <a href="../index.html" class="nav-logo-wrap">
+    <img src="../img/logo-mmo.jpg" width="40" height="40" class="nav-logo-img" alt="MMO Electricistas">
+    <div>
+      <div class="nav-logo-text">MMO <span>Electricistas</span></div>
+      <span class="nav-logo-sub">Urgencias 24 hs · MP 6855/1</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Inicio</a></li>
+    <li><a href="tableros-electricos.html">Tableros</a></li>
+    <li><a href="apto-electrico-epec.html">Apto EPEC</a></li>
+    <li><a href="urgencias-electricas.html">Urgencias 24h</a></li>
+    <li><a href="../zonas.html">Zonas</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="tel:+5493512712104" class="nav-phone" onclick="return trackClicSaliente(this.href)">351 271-2104</a>
+    <a href="#hero-quote-form" data-quote class="nav-cta">Pedir asistencia</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="breadcrumb">
+        <a href="../index.html">Inicio</a> / <a href="../index.html#servicios">Servicios</a> / <span>Reparaciones y Urgencias 24 hs</span>
+      </div>
+      <div class="hero-badge">Guardia Eléctrica 24 Horas · ERSeP MP 6855/1</div>
+      <h1>Reparaciones eléctricas y <em>urgencias 24 hs en Córdoba</em></h1>
+      <p class="hero-desc">
+        Cortes de luz en tu casa o comercio, térmicas o disyuntores que saltan sin parar, enchufes y llaves que no andan o cables recalentados con olor a quemado. Vamos a domicilio en Córdoba Capital y alrededores todos los días del año.
+      </p>
+      <div class="budget-guarantee-pill">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span><strong>Mejoramos cualquier presupuesto</strong></span>
+      </div>
+      <div class="hero-actions">
+        <a href="tel:+5493512712104" onclick="return trackClicSaliente(this.href)" class="btn-primary" style="background:#c0111b;">Llamar ahora: 351 271-2104</a>
+        <a href="https://wa.me/5493512712104?text=Hola%20MMO%20Electricistas%2C%20tengo%20una%20urgencia%20o%20reparaci%C3%B3n%20el%C3%A9ctrica%20y%20necesito%20que%20vengan%20a%20revisar." target="_blank" rel="noopener" onclick="return trackClicSaliente(this.href, '_blank')" class="btn-wa-hero">WhatsApp de Urgencia</a>
+      </div>
+    </div>
+
+    <div class="quote-card" id="hero-quote-form">
+      <form onsubmit="return handleQuoteSubmit(event, this)" novalidate>
+        <div class="qform-fields">
+          <div class="quote-card-head">
+            <h3>Solicitá reparación</h3>
+            <span class="quote-live-pill">Atención 24 hs</span>
+          </div>
+          <p class="quote-card-sub">Completá los datos para decirte enseguida en cuánto llegamos:</p>
+          <div class="quote-guarantee-tag">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Mejoramos cualquier presupuesto</span>
+          </div>
+          <div class="qform-row qform-group">
+            <div>
+              <label class="qform-label">Tu nombre *</label>
+              <input type="text" name="nombre" class="qform-input" placeholder="Ej: MMO" required>
+              <span class="qform-err-msg">Ingresá tu nombre</span>
+            </div>
+            <div>
+              <label class="qform-label">Tu teléfono *</label>
+              <input type="tel" name="telefono" class="qform-input" placeholder="Ej: 351 000-0000" required>
+              <span class="qform-err-msg">Ingresá tu teléfono</span>
+            </div>
+          </div>
+          <div class="qform-group">
+            <label class="qform-label">Servicio</label>
+            <select name="servicio" class="qform-select">
+              <option value="Reparación o Urgencia eléctrica 24 hs" selected>Reparación o Urgencia eléctrica 24 hs</option>
+              <option value="Tableros eléctricos, térmicas y disyuntores">Tableros eléctricos, térmicas y disyuntores</option>
+            </select>
+          </div>
+          <div class="qform-group">
+            <label class="qform-label">Barrio o localidad</label>
+            <input type="text" name="zona" class="qform-input" placeholder="¿En qué barrio estás?">
+          </div>
+          <div class="qform-group">
+            <label class="qform-label">¿Qué falla tenés?</label>
+            <textarea name="mensaje" class="qform-textarea" placeholder="Ej: Se cortó la luz en toda la casa / Salta el disyuntor..."></textarea>
+          </div>
+          <button type="submit" class="qform-submit">Enviar urgencia por WhatsApp →</button>
+        </div>
+        <div class="qform-thanks">
+          <div class="qform-thanks-icon">✓</div>
+          <h4 style="font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;margin-bottom:6px;">¡Gracias, <span class="thanks-name"></span>!</h4>
+          <a href="#" target="_blank" rel="noopener" class="btn-wa-hero thanks-wa-btn" style="width:100%;justify-content:center;">Seguir por WhatsApp →</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="urgencias-strip">
+    <div class="urgencias-inner">
+      <div class="urgencias-left">
+        <div class="urgencias-phone-icon">⚡</div>
+        <div>
+          <div class="urgencias-title">GUARDIA ELÉCTRICA <span>LAS 24 HORAS, TODOS LOS DÍAS</span></div>
+          <div class="urgencias-tags">
+            <span class="urgencias-tag">Encontramos la falla de raíz</span>
+            <span class="urgencias-tag">Repuestos en el móvil</span>
+            <span class="urgencias-tag">Resuelto en la misma visita</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;">
+  <div class="container">
+    <span class="section-label">Por qué llamarnos</span>
+    <h2 class="section-title">Reparaciones seguras que <em>solucionan el problema de raíz</em></h2>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-title">1. Las 24 horas, fines de semana y feriados</div>
+        <p class="pillar-desc">Un corte de luz a la noche o en un local comercial con mercadería no puede esperar al lunes. Te decimos con honestidad a qué hora llegamos.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-title">2. Encontramos la falla exacta</div>
+        <p class="pillar-desc">No anulamos protecciones ni hacemos puentes peligrosos: rastreamos en qué caja, enchufe o línea está el cortocircuito o la fuga a tierra.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-title">3. Resuelto en la misma visita</div>
+        <p class="pillar-desc">Vamos con instrumental de medición, cables, térmicas, disyuntores y tomacorrientes para dejar tu casa o negocio con luz en el momento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--gray-100);">
+  <div class="container">
+    <div class="checklist-split">
+      <div>
+        <span class="section-label">Checklist de reparaciones</span>
+        <h2 class="section-title">Qué fallas resolvemos <em>a domicilio las 24 hs</em></h2>
+        <ul class="checklist-items">
+          <li><span class="chk">✓</span> Cortes de luz totales o en un sector de la casa mientras en la calle hay energía</li>
+          <li><span class="chk">✓</span> Llaves térmicas y disyuntores diferenciales que saltan solos o se quemaron</li>
+          <li><span class="chk">✓</span> Detección de fugas de corriente a tierra en días de lluvia o humedad</li>
+          <li><span class="chk">✓</span> Enchufes, llaves de luz y tomacorrientes derretidos o con falso contacto</li>
+          <li><span class="chk">✓</span> Cables recalentados, empalmes sulfatados en cajas de paso o acometidas</li>
+          <li><span class="chk">✓</span> Reparación de fases caídas en comercios, bombas de agua y tableros generales</li>
+        </ul>
+      </div>
+      <div>
+        <div class="work-photos-grid" style="grid-template-columns:1fr;margin-top:0;">
+          <div class="work-photo-card complete-img" onclick="openLightbox('../img/urgencias-noche.jpg','Guardia de urgencias eléctricas 24 horas en Córdoba')">
+            <img src="../img/urgencias-noche.jpg" alt="Electricista de urgencia 24 horas de noche en Córdoba">
+            <div class="work-photo-cap">Atención de urgencias eléctricas nocturnas y de fin de semana en Córdoba (Tocar para ampliar)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="mmo-lightbox" class="lightbox-backdrop" onclick="closeLightbox()"><button type="button" class="lightbox-close">×</button><img src="" alt="Urgencias 24 hs"><div class="lightbox-cap"></div></div>
+
+<footer class="site-footer">
+  <div class="footer-bottom" style="margin-top:0;padding-top:0;border-top:none;">
+    <span>© 2026 MMO Electricistas Matriculados · Hasan Chumacero MP 6855/1 · Córdoba</span>
+    <a href="../index.html" style="color:#fde047;text-decoration:none;font-weight:700;">← Volver a la página principal</a>
+  </div>
+</footer>
+
+<script src="../mmo-v2.js"></script>
+</body>
+</html>
+
+
+
+
+
