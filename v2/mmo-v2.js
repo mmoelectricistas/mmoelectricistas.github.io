@@ -1,4 +1,4 @@
-// MMO 2.0 - Motor de Conversión, Scroll-Reveal, Popup Contextual de Agente por Servicio, Tarjetas Clickeables y Tracking Google Ads / GA4
+﻿// MMO 2.0 - Motor de Conversión, Scroll-Reveal, Popup Contextual de Agente por Servicio, Tarjetas Clickeables y Tracking Google Ads / GA4
 (function () {
   // 1. Detectar si el cliente entró desde un anuncio de Google Ads (gclid / wbraid / gbraid / utm)
   try {
@@ -358,3 +358,4 @@
     if (lb) lb.classList.remove('open');
   };
 })();
+
